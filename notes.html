@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Goku</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <style>
+        .hidden{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <h2 id="lose">User goes here</h2>
+        <div class="scoreplace">
+            <h3 id="score">Give KI: 0</h3>
+        </div>
+        <div class="text">
+
+        </div>
+        <input type="text" id="username" name="username" placeholder="Enter name">
+        <button id="submit">Submit</button>
+        <div class="row">
+            <div class="avatar">
+                <img id="picture" height="250" width="280" alt="your avatar!" src="https://cdn.firstcuriosity.com/wp-content/uploads/2023/03/15223025/IMG_COM_20230315_2225_32_8651-1024x768.jpg">
+            </div>
+        </div>
+        <button id="click">Train me</button>
+        <div class="row">
+            <fieldset>
+                <legend><h3>Shop</h3></legend>
+                <div class="row">
+                    <label for="1">Instead of feeding 1 KI, you feed 1 more. (Need 50 KI )</label>
+                    <button id="1">Buy</button>
+                </div>
+                <div class="row">
+                    <label for="5">Instead of feeding 1 KI you feed 5 more at a time (Need 250 Ki )</label>
+                    <button id="5">Buy</button>
+                </div>
+                <div class="row">
+                    <label for="10">Instead of feeding 1 KI you feed 10 more at a time (Need 2000 KI)</label>
+                    <button id="10">Buy</button>
+                </div>
+                <div class="row">
+                    <label for="25">Instead of feeding 1 Ki you feed 25 more at a time (Need 10,000 KI)</label>
+                    <button id="25">Buy!</button>
+                </div>
+                <div class="row">
+                    <label for="50">Instead of feeding 1 Ki you feed 50 more at a time (Need 42,333 KI)</label>
+                    <button id="50">Buy!</button>
+                </div>
+                <div class="row">
+                    <label for="100">Instead of feeding 1 KI you feed 100 more at a time (Need 1,000,000,000 KI)</label>
+                    <button id="100">Buy</button>
+                </div>
+                <br>
+                <div class="row">
+                    <label for="win">Win the game</label>
+                    <button id="win">Buy</button>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+<script>
+    const content = document.querySelector('.text');
+
+    const user = document.querySelector('user');
+    const username = document.getElementById('username');
+    const submit = document.getElementById('submit');
+
+    submit.addEventListener('click', function(e){
+        let displayuser = username.value;
+
+        const actualuser = document.createElement('h2');
+        actualuser.innerHTML = `${displayuser}`;
+        content.insertAdjacentElement('afterbegin', actualuser);
+
+        const unwantedElement = document.querySelector('#lose');
+        unwantedElement.remove();
+
+        username.classList.add("hidden");
+        submit.classList.add("hidden");
+    });
+
+    let score = document.getElementById('score');
+    const scorePlace = document.querySelector('.scoreplace');
+    const click = document.getElementById('click');
+    const picture = document.getElementById('picture');
+
+    score = 0;
+    click.addEventListener('click', function(e){
+        score++;
+        scorePlace.innerHTML = `<h3 id="score">Time Chamber training to Goku: ${score}</h3>`;
+
+        if(score >= 10000){
+            picture.src = "https://i.ebayimg.com/images/g/H4YAAOSwF~tdf9XF/s-l1600.jpg";
+        }
+        else if(score >= 1000){
+            picture.src = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1dfaa4d1-2841-4fc2-b6a4-b37e35b30967/deiwly7-8a260825-1af9-4897-8209-303982239fac.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzFkZmFhNGQxLTI4NDEtNGZjMi1iNmE0LWIzN2UzNWIzMDk2N1wvZGVpd2x5Ny04YTI2MDgyNS0xYWY5LTQ4OTctODIwOS0zMDM5ODIyMzlmYWMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.uxLexgrE5tUWkHyFNlFYRLT6zSsF8O1uDJkIIx4Mrqg";
+        }
+        else if(score >= 500){
+            picture.src = "https://e1.pngegg.com/pngimages/117/26/png-clipart-goku-super-saiyan-blue-son-goku.png";
+        }
+        else if(score >= 100){
+            picture.src = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ab60cab7-0751-4261-a1f6-268e74c937e3/dfhz6h1-8c504531-232f-4d33-bb44-a518d3b2977b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2FiNjBjYWI3LTA3NTEtNDI2MS1hMWY2LTI2OGU3NGM5MzdlM1wvZGZoejZoMS04YzUwNDUzMS0yMzJmLTRkMzMtYmI0NC1hNTE4ZDNiMjk3N2IucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.6TYsiVCfsV_XDPND8YfHTCw-bEGLP5VPFUgdHsptNfo";
+        }
+        else if (score >= 70){
+            picture.src = "https://gamepress.gg/dblegends/sites/dblegends/files/2022-06/GzxrPUe.png";
+        }
+        else if(score >= 69){
+            picture.src = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/824db09a-100c-42c1-a47a-d450bd00e595/dex2f3e-1814578f-6c7d-4ccd-8af9-62dfb033d464.png/v1/fill/w_1920,h_2399/_dokkan__phy_super_saiyan_2_goku_render_by_blackflim_dex2f3e-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjM5OSIsInBhdGgiOiJcL2ZcLzgyNGRiMDlhLTEwMGMtNDJjMS1hNDdhLWQ0NTBiZDAwZTU5NVwvZGV4MmYzZS0xODE0NTc4Zi02YzdkLTRjY2QtOGFmOS02MmRmYjAzM2Q0NjQucG5nIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.5o8Td8UG0M3eZlaIgZD8dmdg6F28azg5cplWM0nxgMU";
+        }
+        else if (score >= 60){
+            picture.src = "https://dragonball.guru/wp-content/uploads/2020/12/gokus-ssj-first-time.jpg";
+        }
+    });
+
+    const times2 = document.getElementById('1');
+
+    let i = 1;
+
+    times2.addEventListener('click', function(e){
+        if(score >= 50){
+            score -= 50;
+            click.addEventListener('click', function(e){
+                score += i;
+                scorePlace.innerHTML = `<h3 id="score">Time Chamber training to Goku: ${score}</h3>`;
+            });
+        }
+    });
+
+    const times5 = document.getElementById('5');
+
+    let q = 5;
+
+    times5.addEventListener('click', function(e){
+        if(score >= 250){
+            score -= 250;
+            click.addEventListener('click', function(e){
+                score += q;
+                scorePlace.innerHTML = `<h3 id="score">Time Chamber training to Goku: ${score}</h3>`;
+            });
+        }
+    });
+
+    const times10 = document.getElementById('5');
+
+    let w = 5;
+
+    times10.addEventListener('click', function(e){
+        if(score >= 2000){
+            score -= 2000;
+            click.addEventListener('click', function(e){
+                score += w;
+                scorePlace.innerHTML = `<h3 id="score">Time Chamber training to Goku: ${score}</h3>`;
+            });
+        }
+    });
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
